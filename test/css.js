@@ -20,9 +20,9 @@ describe("Button", function() {
   beforeEach(function() {
     frame.reset();
     container = frame.add(
-      "<div>" +
-        "  <a id='button' class='button' href='#anything'>foo</a>" +
-        "</div>"
+      `<div>
+        <a id='button' class='button' href='#anything'>foo</a>
+      </div>`
     );
     button = frame.get("#button");
   });
