@@ -50,6 +50,12 @@ describe('Text with audio', function() {
       });
     });
 
+    it('has a set height', function() {
+      icon.assert({
+        height: 14
+      });
+    });
+
   });
 
 });
