@@ -1,15 +1,16 @@
-var assert = require("chai").assert;
-var quixote = require("quixote");
+var expect = require('chai').expect;
+var quixote = require('quixote');
 
-describe("Button", function() {
+describe('Text with audio', function() {
 
   var frame;
   var container;
-  var button;
+  var text;
+  var icon;
 
   before(function(done) {
     frame = quixote.createFrame({
-      stylesheet: "/base/src/client/screen.css"
+      stylesheet: '/base/src/client/screen.css'
     }, done);
   });
 
@@ -20,23 +21,35 @@ describe("Button", function() {
   beforeEach(function() {
     frame.reset();
     container = frame.add(
-      `<div>
-        <a id='button' class='button' href='#anything'>foo</a>
-      </div>`
+      `<span class='sd-audio'>
+         <span class='sd-text-audio'>article.</span>
+         <a href='#' class='sd-audio-start'>
+           <span class='sd-audio-icon'>&nbsp;</span>
+         </a>
+       </span>`
     );
-    button = frame.get("#button");
+    text = frame.get('.sd-text-audio');
+    icon = frame.get('.sd-audio-icon');
   });
 
-  it("fills its container", function() {
-    button.assert({
-      width: container.width
+  describe('audio icon', function() {
+
+    it('aligns with text at the top', function() {
+      icon.assert({
+        top: text.top
+      });
     });
-  });
 
-  it("has styled text", function() {
-    assert.equal(button.getRawStyle("text-align"), "center", "should be centered");
-    assert.equal(button.getRawStyle("text-decoration"), "none", "should not be underlined");
-    assert.equal(button.getRawStyle("text-transform"), "uppercase", "should be uppercase");
+    it('has styled text', function() {
+      expect(icon.getRawStyle('background-image')).to.not.eql('none');
+    });
+
+    it('has a set width', function() {
+      icon.assert({
+        width: 14
+      });
+    });
+
   });
 
 });
