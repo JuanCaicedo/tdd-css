@@ -14,5 +14,5 @@
 }
 
 .sd-audio {
-  display: flex;
+  display: inline-flex;
 }
