@@ -67,4 +67,14 @@ describe('Text with audio', function() {
     expect(topSpacing).to.eql(bottomSpacing);
   });
 
+  it('is spaced apart from text', function() {
+
+    const textRight = text.getRawPosition().right;
+
+    icon.assert({
+      left: textRight + 8
+    });
+
+  });
+
 });

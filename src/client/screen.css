@@ -9,5 +9,10 @@
 }
 
 .sd-audio-start {
-  position: relative
+  position: relative;
+  padding-left: 8px;
+}
+
+.sd-audio {
+  display: flex;
 }
