@@ -30,32 +30,41 @@ describe('Text with audio', function() {
     );
     text = frame.get('.sd-text-audio');
     icon = frame.get('.sd-audio-icon');
+    container = frame.get('.sd-audio-start');
   });
 
-  describe('audio icon', function() {
 
-    it('aligns with text at the top', function() {
-      icon.assert({
-        top: text.top
-      });
+  it('aligns with text at the top', function() {
+    container.assert({
+      top: text.top
     });
+  });
 
-    it('has styled text', function() {
-      expect(icon.getRawStyle('background-image')).to.not.eql('none');
+  it('has styled text', function() {
+    expect(icon.getRawStyle('background-image')).to.not.eql('none');
+  });
+
+  it('has a set width', function() {
+    icon.assert({
+      width: 14
     });
+  });
 
-    it('has a set width', function() {
-      icon.assert({
-        width: 14
-      });
+  it('has a set height', function() {
+    icon.assert({
+      height: 14
     });
+  });
 
-    it('has a set height', function() {
-      icon.assert({
-        height: 14
-      });
-    });
+  it('is centered within icon container', function() {
+    const iconTop = icon.getRawPosition().top;
+    const iconBottom = icon.getRawPosition().bottom;
+    const containerTop = container.getRawPosition().top;
+    const containerBottom = container.getRawPosition().bottom;
 
+    const topSpacing = iconTop - containerTop;
+    const bottomSpacing = containerBottom - iconBottom;
+    expect(topSpacing).to.eql(bottomSpacing);
   });
 
 });

@@ -4,4 +4,10 @@
   display: inline-block;
   width: 14px;
   height: 14px;
+  top: 2px;
+  position: absolute;
+}
+
+.sd-audio-start {
+  position: relative
 }
