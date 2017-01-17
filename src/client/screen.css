@@ -16,3 +16,15 @@
 .sd-audio {
   display: inline-flex;
 }
+
+.sd-accent-box-row {
+  display: table-row;
+}
+
+.sd-accent-box-icon-container {
+  display: table-cell;
+}
+
+.sd-accent-box-text {
+  display: table-cell;
+}

@@ -42,7 +42,7 @@ describe('Text with audio icon', function() {
       });
     });
 
-    it('has styled text', function() {
+    it('has background image', function() {
       expect(icon.getRawStyle('background-image')).to.not.eql('none');
     });
 
