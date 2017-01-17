@@ -56,4 +56,10 @@ describe('Accent box', function() {
     });
   });
 
+  it('icon box has set width', function() {
+    iconContainer.assert({
+      width: 70
+    });
+  });
+
 });

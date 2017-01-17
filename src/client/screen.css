@@ -28,3 +28,7 @@
 .sd-accent-box-text {
   display: table-cell;
 }
+
+.sd-accent-box-icon-container {
+  width: 70px;
+}
