@@ -8,7 +8,7 @@ describe('Accent box', function() {
   var body;
   var box;
   var iconContainer;
-  var text;
+  var textBox;
 
   before(function(done) {
     frame = quixote.createFrame({
@@ -39,11 +39,11 @@ describe('Accent box', function() {
     body = frame.get('body');
     box = frame.get('.sd-accent-box');
     iconContainer = frame.get('.sd-accent-box-icon-container');
-    text = frame.get('.sd-accent-box-text');
+    textBox = frame.get('.sd-accent-box-text');
 
   });
 
-  it('takes up full width', function() {
+  it('box takes up full width', function() {
     box.assert({
       width: body.width
     });
@@ -51,14 +51,21 @@ describe('Accent box', function() {
 
   it('icon box and text box are next to each other', function() {
     iconContainer.assert({
-      top: text.top,
-      bottom: text.bottom
+      top: textBox.top,
+      bottom: textBox.bottom
     });
   });
 
   it('icon box has set width', function() {
     iconContainer.assert({
       width: 70
+    });
+  });
+
+  it('text box takes up remaining width', function() {
+    var bodyWidth = body.width;
+    textBox.assert({
+      width: body.width.minus(70)
     });
   });
 

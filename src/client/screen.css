@@ -17,18 +17,22 @@
   display: inline-flex;
 }
 
+.sd-accent-box {
+  display: table;
+  width: 100%;
+}
+
 .sd-accent-box-row {
   display: table-row;
 }
 
 .sd-accent-box-icon-container {
   display: table-cell;
+  width: 70px;
+  background: #3e86c7;
 }
 
 .sd-accent-box-text {
   display: table-cell;
-}
-
-.sd-accent-box-icon-container {
-  width: 70px;
+  background-color: #ebf8ff;
 }
