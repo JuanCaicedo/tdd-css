@@ -15,11 +15,12 @@ describe('Speech box', function() {
     frame.remove();
   });
 
-  describe('with one line of text', function() {
+  describe('two words', function() {
 
     var container;
     var body;
     var speechBox;
+    var textContainer;
     var text;
 
     beforeEach(function() {
@@ -27,23 +28,34 @@ describe('Speech box', function() {
       container = frame.add(
         `<div class="sd-speech-box">
            <div class="sd-speech-text">
-              Some dialogue
+              <span>Some dialogue</span>
            </div>
          </div>`
       );
       body = frame.get('body');
       speechBox = frame.get('.sd-speech-box');
-      text = frame.get('.sd-speech-text');
+      textContainer = frame.get('.sd-speech-text');
+      text = frame.get('.sd-speech-text span');
 
     });
 
     it('centers text within box with padding', function() {
       var border = 1;
-      text.assert({
+      textContainer.assert({
         top: speechBox.top.plus(15 + border),
         right: speechBox.right.minus(30 + border),
         bottom: speechBox.bottom.minus(20 + border),
         left: speechBox.left.plus(30 + border)
+      });
+    });
+
+    it('should only extend the box as far as the text', function() {
+      var border = 1;
+      speechBox.assert({
+        top: text.top.minus(15 + border),
+        right: text.right.plus(30 + border),
+        bottom: text.bottom.plus(20 + border),
+        left: text.left.minus(30 + border)
       });
     });
 
