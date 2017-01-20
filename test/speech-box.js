@@ -61,4 +61,45 @@ describe('Speech box', function() {
 
   });
 
+  describe('two words', function() {
+
+    var container;
+    var body;
+    var one;
+    var two;
+
+    beforeEach(function() {
+      frame.reset();
+      container = frame.add(
+        `<div>
+           <div class="sd-speech-container">
+             <div id="one" class="sd-speech-box">
+               <div class="sd-speech-text">
+                 <span>Some dialogue</span>
+               </div>
+             </div>
+           </div>
+           <div id="two" class="sd-speech-box">
+             <div class="sd-speech-container">
+               <div class="sd-speech-text">
+                 <span>Some dialogue</span>
+               </div>
+             </div>
+           </div>
+         </div>`
+      );
+      body = frame.get('body');
+      one = frame.get('#one');
+      two = frame.get('#two');
+
+    });
+
+    it('centers text within box with padding', function() {
+      two.assert({
+        top: one.bottom.plus(10)
+      });
+    });
+
+  });
+
 });
