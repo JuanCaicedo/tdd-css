@@ -100,7 +100,7 @@ describe('Speech box', function() {
 
       });
 
-      it('centers text within box with padding', function() {
+      it('has vertical space between boxes', function() {
         two.assert({
           top: one.bottom.plus(10)
         });
@@ -257,5 +257,45 @@ describe('Speech box', function() {
       });
     });
 
+    describe('two speech boxes', function() {
+
+      var container;
+      var body;
+      var one;
+      var two;
+
+      beforeEach(function() {
+        frame.reset();
+        container = frame.add(
+          `<div>
+            <div class="sd-speech-container">
+              <div id="one" class="sd-speech-box">
+                <div class="sd-speech-text">
+                  <span>Some dialogue</span>
+                </div>
+              </div>
+            </div>
+            <div class="sd-speech-container">
+              <div id="two" class="sd-speech-box">
+                <div class="sd-speech-text">
+                  <span>Some dialogue</span>
+                </div>
+              </div>
+            </div>
+          </div>`
+        );
+        body = frame.get('body');
+        one = frame.get('#one');
+        two = frame.get('#two');
+
+      });
+
+      it('has vertical space between boxes', function() {
+        two.assert({
+          top: one.bottom.plus(10)
+        });
+      });
+
+    });
   });
 });
