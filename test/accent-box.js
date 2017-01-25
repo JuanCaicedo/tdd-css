@@ -14,7 +14,7 @@ describe('Accent box', function() {
     before(function(done) {
       frame = quixote.createFrame({
         stylesheet: '/base/src/client/screen.css',
-        width: 1280,
+        width: 1024,
         height: 800
       }, done);
     });
@@ -30,7 +30,6 @@ describe('Accent box', function() {
 
       beforeEach(function() {
         frame.reset();
-        frame.resize(1280, 800);
         container = frame.add(
           `<div class="sd-accent-box">
             <div class="sd-accent-box-row">

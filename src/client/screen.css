@@ -32,12 +32,6 @@
   background: #3e86c7;
 }
 
-@media (min-width: 801px) {
-  .sd-accent-box-icon-container {
-    width: 70px;
-  }
-}
-
 .sd-accent-box-text {
   display: table-cell;
   background-color: #ebf8ff;
@@ -60,6 +54,13 @@
   display: inline-block;
 }
 
-.sd-speech-container {
-  margin: 10px 175px 0px 125px;
+/* desktop styles */
+@media (min-width: 801px) {
+  .sd-speech-container {
+    margin: 10px 175px 0px 125px;
+  }
+
+  .sd-accent-box-icon-container {
+    width: 70px;
+  }
 }
