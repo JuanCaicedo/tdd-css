@@ -52,5 +52,8 @@
   border-radius: 34px;
   padding: 15px 30px 20px;
   display: inline-block;
-  margin-top: 10px;
+}
+
+.sd-speech-container {
+  margin: 10px 175px 0px 125px;
 }

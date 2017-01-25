@@ -26,9 +26,11 @@ describe('Speech box', function() {
     beforeEach(function() {
       frame.reset();
       container = frame.add(
-        `<div class="sd-speech-box">
-           <div class="sd-speech-text">
-              <span>Some dialogue</span>
+        `<div class="sd-speech-container">
+           <div class="sd-speech-box">
+             <div class="sd-speech-text">
+               <span>Some dialogue</span>
+             </div>
            </div>
          </div>`
       );
@@ -61,7 +63,7 @@ describe('Speech box', function() {
 
   });
 
-  describe('two words', function() {
+  describe('two speech boxes', function() {
 
     var container;
     var body;
@@ -79,8 +81,8 @@ describe('Speech box', function() {
                </div>
              </div>
            </div>
-           <div id="two" class="sd-speech-box">
-             <div class="sd-speech-container">
+           <div class="sd-speech-container">
+             <div id="two" class="sd-speech-box">
                <div class="sd-speech-text">
                  <span>Some dialogue</span>
                </div>
@@ -97,6 +99,57 @@ describe('Speech box', function() {
     it('centers text within box with padding', function() {
       two.assert({
         top: one.bottom.plus(10)
+      });
+    });
+
+  });
+
+  describe('long enough to wrap', function() {
+
+    var container;
+    var body;
+    var speechContainer;
+    var speechBox;
+
+    beforeEach(function() {
+      frame.reset();
+      container = frame.add(
+        `<div class="sd-speech-container">
+           <div class="sd-speech-box">
+             <div class="sd-speech-text">
+               <span>
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+                 Some dialogue
+               </span>
+             </div>
+           </div>
+         </div>`
+      );
+      body = frame.get('body');
+      speechContainer = frame.get('.sd-speech-container');
+      speechBox = frame.get('.sd-speech-box');
+
+    });
+
+
+    it('centers text within box with padding', function() {
+      speechContainer.assert({
+        left: body.left.plus(125),
+        right: body.right.minus(175)
       });
     });
 
