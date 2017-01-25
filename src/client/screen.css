@@ -28,8 +28,14 @@
 
 .sd-accent-box-icon-container {
   display: table-cell;
-  width: 70px;
+  width: 50px;
   background: #3e86c7;
+}
+
+@media (min-width: 801px) {
+  .sd-accent-box-icon-container {
+    width: 70px;
+  }
 }
 
 .sd-accent-box-text {
