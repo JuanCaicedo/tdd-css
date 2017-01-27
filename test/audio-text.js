@@ -3,7 +3,7 @@ var quixote = require('quixote');
 
 describe('Text with audio icon', function() {
 
-  describe('One word', function() {
+  describe('one word', function() {
     var frame;
     var container;
     var audioContainer;
@@ -66,15 +66,14 @@ describe('Text with audio icon', function() {
 
       const topSpacing = iconTop - containerTop;
       const bottomSpacing = containerBottom - iconBottom;
+
       expect(topSpacing).to.eql(bottomSpacing);
     });
 
     it('is spaced apart from text', function() {
 
-      const textRight = text.getRawPosition().right;
-
       icon.assert({
-        left: textRight + 8
+        left: text.right.plus(8)
       });
 
     });
