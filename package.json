@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start --single-run",
-    "test:watch": "karma start"
+    "test:watch": "karma start",
+    "build": "postcss -u autoprefixer -o public/css/app.css src/client/screen.css"
   },
   "keywords": [],
   "author": "Juan Caicedo <retiredcanadianpoet@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "6.7.0",
     "babel-preset-es2015": "6.18.0",
     "babelify": "7.3.0",
     "brfs": "1.4.3",
@@ -19,10 +21,13 @@
     "chai": "3.5.0",
     "karma": "1.3.0",
     "karma-browserify": "5.1.0",
+    "karma-browserstack-launcher": "1.1.1",
     "karma-chrome-launcher": "2.0.0",
     "karma-min-reporter": "0.1.0",
     "karma-mocha": "1.3.0",
     "mocha": "3.2.0",
+    "nodemon": "1.11.0",
+    "postcss-cli": "2.6.0",
     "quixote": "0.12.3",
     "requirejs": "2.3.2",
     "watchify": "3.8.0"

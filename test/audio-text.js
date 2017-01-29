@@ -12,7 +12,7 @@ describe('Text with audio icon', function() {
 
     before(function(done) {
       frame = quixote.createFrame({
-        stylesheet: '/base/src/client/screen.css'
+        stylesheet: '/base/public/css/app.css'
       }, done);
     });
 
@@ -59,10 +59,10 @@ describe('Text with audio icon', function() {
     });
 
     it('is centered within icon container', function() {
-      const iconTop = icon.getRawPosition().top;
-      const iconBottom = icon.getRawPosition().bottom;
-      const containerTop = audioContainer.getRawPosition().top;
-      const containerBottom = audioContainer.getRawPosition().bottom;
+      const iconTop = icon.getRawPosition().top.toFixed();
+      const iconBottom = icon.getRawPosition().bottom.toFixed();
+      const containerTop = audioContainer.getRawPosition().top.toFixed();
+      const containerBottom = audioContainer.getRawPosition().bottom.toFixed();
 
       const topSpacing = iconTop - containerTop;
       const bottomSpacing = containerBottom - iconBottom;
@@ -70,12 +70,22 @@ describe('Text with audio icon', function() {
       expect(topSpacing).to.eql(bottomSpacing);
     });
 
-    it('is spaced apart from text', function() {
+    it('audio container is directly to the right of text', function() {
+      audioContainer.assert({
+        left: text.right
+      });
+    });
 
+    it('icon is directly to the right of audio container', function() {
+      icon.assert({
+        left: audioContainer.left.plus(8)
+      });
+    });
+
+    it('is spaced apart from text', function() {
       icon.assert({
         left: text.right.plus(8)
       });
-
     });
   });
 
@@ -88,7 +98,7 @@ describe('Text with audio icon', function() {
 
     before(function(done) {
       frame = quixote.createFrame({
-        stylesheet: '/base/src/client/screen.css'
+        stylesheet: '/base/public/css/app.css'
       }, done);
     });
 

@@ -13,7 +13,7 @@ describe('Speech box', function() {
 
     before(function(done) {
       frame = quixote.createFrame({
-        stylesheet: '/base/src/client/screen.css',
+        stylesheet: '/base/public/css/app.css',
         width: 1024,
         height: 800
       }, done);
@@ -164,7 +164,7 @@ describe('Speech box', function() {
 
     before(function(done) {
       frame = quixote.createFrame({
-        stylesheet: '/base/src/client/screen.css',
+        stylesheet: '/base/public/css/app.css',
         width: 800,
         height: 700
       }, done);

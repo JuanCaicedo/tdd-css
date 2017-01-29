@@ -1,8 +1,24 @@
 // Karma configuration
 // Generated on Thu Jan 12 2017 08:09:11 GMT-0500 (COT)
 
+// Only add if you have browserstack credentials
+var browserStack = require('./secrets/browserstack');
+
 module.exports = function(config) {
   config.set({
+
+    // Only add if you have browserstack credentials
+    browserStack: browserStack,
+
+    customLaunchers: {
+      ie_10: {
+        base: 'BrowserStack',
+        browser: 'ie',
+        browser_version: '10',
+        os: 'Windows',
+        os_version: '7'
+      }
+    },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -15,7 +31,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/client/screen.css',
+      'public/css/app.css',
       'test/**/*.js'
     ],
 
@@ -64,7 +80,8 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['ie_10'],
+    // browsers: ['Chrome'],
 
 
     // Continuous Integration mode
@@ -74,5 +91,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};

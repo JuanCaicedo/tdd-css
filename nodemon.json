@@ -1,0 +1,8 @@
+{
+  "verbose": false,
+  "watch": [
+    "src"
+  ],
+  "ext": "css",
+  "exec": "npm run build"
+}
