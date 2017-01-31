@@ -51,14 +51,6 @@
   position: relative;
 }
 
-.sd-accent-box-row::before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  width: 1%;
-  vertical-align: middle;
-}
-
 .sd-accent-box-text {
   display: table-cell;
   background-color: #ebf8ff;
