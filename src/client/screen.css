@@ -19,11 +19,6 @@
 }
 
 .sd-accent-box {
-  display: table;
-  width: 100%;
-}
-
-.sd-accent-box-row {
   display: flex;
 }
 

@@ -33,16 +33,14 @@ describe('Accent box', function() {
         frame.reset();
         container = frame.add(
           `<div class="sd-accent-box">
-            <div class="sd-accent-box-row">
-              <div class="sd-accent-box-icon-container">
-                <div class="sd-accent-box-icon">
-                </div>
-              </div>
-              <div class="sd-accent-box-text">
-                <h3>Did you know...</h3>
-              </div>
-            </div>
-          </div>`
+             <div class="sd-accent-box-icon-container">
+               <div class="sd-accent-box-icon">
+               </div>
+             </div>
+             <div class="sd-accent-box-text">
+               <h3>Did you know...</h3>
+             </div>
+           </div>`
         );
         body = frame.get('body');
         box = frame.get('.sd-accent-box');
@@ -200,16 +198,14 @@ describe('Accent box', function() {
         frame.reset();
         container = frame.add(
           `<div class="sd-accent-box">
-            <div class="sd-accent-box-row">
-              <div class="sd-accent-box-icon-container">
-                <div class="sd-accent-box-icon">
-                </div>
-              </div>
-              <div class="sd-accent-box-text">
-                <h3>Did you know...</h3>
-              </div>
-            </div>
-          </div>`
+             <div class="sd-accent-box-icon-container">
+               <div class="sd-accent-box-icon">
+               </div>
+             </div>
+             <div class="sd-accent-box-text">
+               <h3>Did you know...</h3>
+             </div>
+           </div>`
         );
         body = frame.get('body');
         box = frame.get('.sd-accent-box');

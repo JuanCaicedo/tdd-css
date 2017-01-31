@@ -28,11 +28,6 @@
 }
 
 .sd-accent-box {
-  display: table;
-  width: 100%;
-}
-
-.sd-accent-box-row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
