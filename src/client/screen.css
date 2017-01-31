@@ -31,6 +31,23 @@
   display: table-cell;
   width: 50px;
   background: #3e86c7;
+  vertical-align: middle;
+}
+
+.sd-accent-box-icon {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAUCAYAAABWMrcvAAAAAXNSR0IArs4c6QAAASJJREFUOBHFkrFOAlEQRXcRMNKJCS0VBZWJfgKVHZR8haGBin8woaM2xMLOaGEs7I2R3goaAhErWrKca+Yl+9jnUnKTk3kzc4c37G4UpZQkyQ1M4As2MIM36MNpyhpFFM7hAfL0TfP6b5BDAd5T7jvOLahBE3qgW6U5XOiWrjLTrbeCJfQ6zkAcaejeCkviSWhINXor830WyK/M+BHH8dbOofBjxWaRwwA0PLNiJnBDnWLDGouMYb/AQBH02J2G+x4vx1WGR+cmvoK2C4tmCZ7A6YXDWdhtVQzuqWpIt5UODbTlND0T8wf0a5i0ivQL1dwbXBPjWhNo4mrpqPfjCaO+Cq2zgbnXPH7CehWYGuPQRqG3q/95aWb3kXqzmQfhdf9JdmdhRFPrg/g4AAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  width: 13px;
+  height: 20px;
+  position: relative;
+}
+
+.sd-accent-box-row::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 1%;
+  vertical-align: middle;
 }
 
 .sd-accent-box-text {

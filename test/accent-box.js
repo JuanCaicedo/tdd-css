@@ -9,7 +9,7 @@ describe('Accent box', function() {
     frame.remove();
   });
 
-  describe('desktop', function() {
+  describe('on desktop', function() {
 
     before(function(done) {
       frame = quixote.createFrame({
@@ -25,6 +25,7 @@ describe('Accent box', function() {
       var body;
       var box;
       var iconContainer;
+      var icon;
       var textBox;
       var text;
 
@@ -46,6 +47,7 @@ describe('Accent box', function() {
         body = frame.get('body');
         box = frame.get('.sd-accent-box');
         iconContainer = frame.get('.sd-accent-box-icon-container');
+        icon = frame.get('.sd-accent-box-icon');
         textBox = frame.get('.sd-accent-box-text');
         text = frame.get('h3');
 
@@ -83,6 +85,33 @@ describe('Accent box', function() {
           bottom: textBox.bottom.minus(15),
           left: textBox.left.plus(15)
         });
+      });
+
+      describe('icon', function() {
+
+        it('has background image', function() {
+          expect(icon.getRawStyle('background-image')).to.not.eql('none');
+        });
+
+        it('has a set dimensions', function() {
+          icon.assert({
+            width: 13,
+            height: 20
+          });
+        });
+
+        it('is vertically centered within container', function() {
+          const iconTop = icon.getRawPosition().top.toFixed();
+          const iconBottom = icon.getRawPosition().bottom.toFixed();
+          const containerTop = iconContainer.getRawPosition().top.toFixed();
+          const containerBottom = iconContainer.getRawPosition().bottom.toFixed();
+
+          const topSpacing = iconTop - containerTop;
+          const bottomSpacing = containerBottom - iconBottom;
+
+          expect(topSpacing).to.eql(bottomSpacing);
+        });
+
       });
 
     });
@@ -132,9 +161,10 @@ describe('Accent box', function() {
       });
 
     });
+
   });
 
-  describe('mobile', function() {
+  describe('on mobile', function() {
 
     before(function(done) {
       frame = quixote.createFrame({
