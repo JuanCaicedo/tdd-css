@@ -24,14 +24,15 @@
 }
 
 .sd-accent-box-row {
-  display: table-row;
+  display: flex;
 }
 
 .sd-accent-box-icon-container {
-  display: table-cell;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   background: #3e86c7;
-  vertical-align: middle;
 }
 
 .sd-accent-box-icon {
@@ -39,14 +40,13 @@
   background-repeat: no-repeat;
   width: 13px;
   height: 20px;
-  position: relative;
-  margin: 0 auto;
 }
 
 .sd-accent-box-text {
-  display: table-cell;
+  display: inline-block;
   background-color: #ebf8ff;
   padding: 15px;
+  flex-grow: 1;
 }
 
 .sd-accent-box-text h1:first-child,h2:first-child,h3:first-child,h4:first-child,h5:first-child,h6:first-child {

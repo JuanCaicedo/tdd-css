@@ -62,6 +62,7 @@ describe('Accent box', function() {
       it('aligns icon box and text box next to each other', function() {
         iconContainer.assert({
           top: textBox.top,
+          right: textBox.left,
           bottom: textBox.bottom
         });
       });
