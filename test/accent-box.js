@@ -101,15 +101,27 @@ describe('Accent box', function() {
         });
 
         it('is vertically centered within container', function() {
-          const iconTop = icon.getRawPosition().top.toFixed();
-          const iconBottom = icon.getRawPosition().bottom.toFixed();
-          const containerTop = iconContainer.getRawPosition().top.toFixed();
-          const containerBottom = iconContainer.getRawPosition().bottom.toFixed();
+          const iconTop = icon.getRawPosition().top.toFixed(2);
+          const iconBottom = icon.getRawPosition().bottom.toFixed(2);
+          const containerTop = iconContainer.getRawPosition().top.toFixed(2);
+          const containerBottom = iconContainer.getRawPosition().bottom.toFixed(2);
 
           const topSpacing = iconTop - containerTop;
           const bottomSpacing = containerBottom - iconBottom;
 
           expect(topSpacing).to.eql(bottomSpacing);
+        });
+
+        it('is horizontally centered within container', function() {
+          const iconLeft = icon.getRawPosition().left.toFixed(2);
+          const iconRight = icon.getRawPosition().right.toFixed(2);
+          const containerLeft = iconContainer.getRawPosition().left.toFixed(2);
+          const containerRight = iconContainer.getRawPosition().right.toFixed(2);
+
+          const leftSpacing = iconLeft - containerLeft;
+          const rightSpacing = containerRight - iconRight;
+
+          expect(leftSpacing).to.eql(rightSpacing);
         });
 
       });

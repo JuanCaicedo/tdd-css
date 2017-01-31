@@ -40,6 +40,7 @@
   width: 13px;
   height: 20px;
   position: relative;
+  margin: 0 auto;
 }
 
 .sd-accent-box-text {
