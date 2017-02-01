@@ -2,7 +2,12 @@
 // Generated on Thu Jan 12 2017 08:09:11 GMT-0500 (COT)
 
 // Only add if you have browserstack credentials
-var browserStack = require('./secrets/browserstack');
+var browserStack;
+try {
+  require('./secrets/browserstack');
+} catch (e) {
+  // Noop, keep going
+}
 
 module.exports = function(config) {
   config.set({
