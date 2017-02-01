@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start --single-run",
     "test:watch": "karma start",
-    "build": "postcss -u autoprefixer -o public/css/app.css src/client/screen.css",
+    "build": "postcss -u autoprefixer -o public/css/app.css src/app.css",
     "build:watch": "nodemon"
   },
   "keywords": [],
