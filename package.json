@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start --single-run",
     "test:watch": "karma start",
-    "test:build": "browserify test/accent-box.js -o lib-test/accent-box.js -t [ babelify --presets [ es2015 ] ]",
+    "test:build": "browserify test/accent-box.js -o lib-test/accent-box.js -t brfs -t [ babelify --presets [ es2015 ] ]",
     "build": "postcss -u autoprefixer -o public/css/app.css src/app.css",
     "build:watch": "nodemon"
   },
@@ -31,7 +31,7 @@
     "mocha": "3.2.0",
     "nodemon": "1.11.0",
     "postcss-cli": "2.6.0",
-    "quixote": "0.12.3",
+    "quixote": "https://github.com/JuanCaicedo/quixote.git#b27c2e32fc8a25720b69d66a316a61a0c7c4ea0a",
     "requirejs": "2.3.2",
     "watchify": "3.8.0"
   },
