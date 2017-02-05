@@ -3,13 +3,9 @@ var quixote = require('quixote');
 
 describe('Speech box', function() {
 
-  var frame;
-
-  after(function() {
-    frame.remove();
-  });
-
   describe('desktop', function() {
+
+    var frame;
 
     before(function(done) {
       frame = quixote.createFrame({
@@ -17,6 +13,10 @@ describe('Speech box', function() {
         width: 1024,
         height: 800
       }, done);
+    });
+
+    after(function() {
+      frame.remove();
     });
 
     describe('two words', function() {
@@ -161,6 +161,7 @@ describe('Speech box', function() {
   });
 
   describe('mobile', function() {
+    var frame;
 
     before(function(done) {
       frame = quixote.createFrame({
@@ -168,6 +169,10 @@ describe('Speech box', function() {
         width: 800,
         height: 700
       }, done);
+    });
+
+    after(function() {
+      frame.remove();
     });
 
     describe('two words', function() {

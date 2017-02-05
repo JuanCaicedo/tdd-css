@@ -3,13 +3,9 @@ var quixote = require('quixote');
 
 describe('Accent box', function() {
 
-  var frame;
-
-  after(function() {
-    frame.remove();
-  });
-
   describe('on desktop', function() {
+
+    var frame;
 
     before(function(done) {
       frame = quixote.createFrame({
@@ -17,6 +13,10 @@ describe('Accent box', function() {
         width: 1024,
         height: 800
       }, done);
+    });
+
+    after(function() {
+      frame.remove();
     });
 
     describe('with one line of text', function() {
@@ -193,12 +193,18 @@ describe('Accent box', function() {
 
   describe('on mobile', function() {
 
+    var frame;
+
     before(function(done) {
       frame = quixote.createFrame({
         stylesheet: '/base/public/css/app.css',
         width: 800,
         height: 736
       }, done);
+    });
+
+    after(function() {
+      frame.remove();
     });
 
     describe('with one line of text', function() {
