@@ -35,39 +35,54 @@ describe('Text with audio icon', function() {
       audioContainer = frame.get('.sd-audio-start');
     });
 
-
-    it('aligns with text at the top', function() {
+    it('aligns text and icon side by side', function() {
       audioContainer.assert({
         top: text.top
       });
     });
 
-    it('has background image', function() {
-      expect(icon.getRawStyle('background-image')).to.not.eql('none');
-    });
+    describe('icon', function() {
 
-    it('has a set width', function() {
-      icon.assert({
-        width: 14
+      it('has background image', function() {
+        expect(icon.getRawStyle('background-image')).to.not.eql('none');
       });
-    });
 
-    it('has a set height', function() {
-      icon.assert({
-        height: 14
+      it('has a set width', function() {
+        icon.assert({
+          width: 14
+        });
       });
-    });
 
-    it('is centered within icon container', function() {
-      const iconTop = icon.getRawPosition().top.toFixed();
-      const iconBottom = icon.getRawPosition().bottom.toFixed();
-      const containerTop = audioContainer.getRawPosition().top.toFixed();
-      const containerBottom = audioContainer.getRawPosition().bottom.toFixed();
+      it('has a set height', function() {
+        icon.assert({
+          height: 14
+        });
+      });
 
-      const topSpacing = iconTop - containerTop;
-      const bottomSpacing = containerBottom - iconBottom;
+      it('is centered within icon container', function() {
+        const iconTop = icon.getRawPosition().top.toFixed();
+        const iconBottom = icon.getRawPosition().bottom.toFixed();
+        const containerTop = audioContainer.getRawPosition().top.toFixed();
+        const containerBottom = audioContainer.getRawPosition().bottom.toFixed();
 
-      expect(topSpacing).to.eql(bottomSpacing);
+        const topSpacing = iconTop - containerTop;
+        const bottomSpacing = containerBottom - iconBottom;
+
+        expect(topSpacing).to.eql(bottomSpacing);
+      });
+
+      it('is a set distance from text', function() {
+        icon.assert({
+          left: text.right.plus(8)
+        });
+      });
+
+      it('icon is to the right of audio container with padding', function() {
+        icon.assert({
+          left: audioContainer.left.plus(8)
+        });
+      });
+
     });
 
     it('audio container is directly to the right of text', function() {
@@ -76,17 +91,6 @@ describe('Text with audio icon', function() {
       });
     });
 
-    it('icon is directly to the right of audio container', function() {
-      icon.assert({
-        left: audioContainer.left.plus(8)
-      });
-    });
-
-    it('is spaced apart from text', function() {
-      icon.assert({
-        left: text.right.plus(8)
-      });
-    });
   });
 
   describe('with other text, one line', function() {

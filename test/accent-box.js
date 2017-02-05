@@ -136,7 +136,7 @@ describe('Accent box', function() {
       var textBox;
       var h1;
       var h3;
-      var div;
+      var innerText;
 
       beforeEach(function() {
         frame.reset();
@@ -148,9 +148,9 @@ describe('Accent box', function() {
                 </div>
               </div>
               <div class="sd-accent-box-text">
-                <h3>Did you know...</h3>
-                <div class="other">Other text</div>
                 <h1>Last header</h1>
+                <div class="inner-text">Other text</div>
+                <h3>Did you know...</h3>
               </div>
             </div>
           </div>`
@@ -161,18 +161,34 @@ describe('Accent box', function() {
         textBox = frame.get('.sd-accent-box-text');
         h1 = frame.get('h1');
         h3 = frame.get('h3');
-        div = frame.get('.other');
+        innerText = frame.get('.inner-text');
+      });
 
+      it('has only normal padding above first header', function() {
+        h1.assert({
+          top: textBox.top.plus(15)
+        });
       });
 
       it('maintains spacing after headers', function() {
-        div.assert({
-          top: h3.bottom.plus(18.720)
+        innerText.assert({
+          top: h1.bottom.plus(21.440)
+        });
+      });
+
+      it('maintains spacing before headers', function() {
+        h3.assert({
+          top: innerText.bottom.plus(18.720)
+        });
+      });
+
+      it('has only normal padding below final header', function() {
+        h3.assert({
+          bottom: textBox.bottom.minus(15)
         });
       });
 
     });
-
   });
 
   describe('on mobile', function() {
