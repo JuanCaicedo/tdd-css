@@ -3,13 +3,9 @@ var quixote = require('quixote');
 
 describe('Speech box', function() {
 
-  var frame;
-
-  after(function() {
-    frame.remove();
-  });
-
   describe('desktop', function() {
+
+    var frame;
 
     before(function(done) {
       frame = quixote.createFrame({
@@ -19,148 +15,57 @@ describe('Speech box', function() {
       }, done);
     });
 
-    describe('two words', function() {
+    after(function() {
+      frame.remove();
+    });
 
-      var container;
-      var body;
-      var speechBox;
-      var textContainer;
-      var text;
+    describe('two words', function() {
 
       beforeEach(function() {
         frame.reset();
-        container = frame.add(
-          `<div class="sd-speech-container">
-            <div class="sd-speech-box">
-              <div class="sd-speech-text">
-                <span>Some dialogue</span>
-              </div>
-            </div>
-          </div>`
-        );
-        body = frame.get('body');
-        speechBox = frame.get('.sd-speech-box');
-        textContainer = frame.get('.sd-speech-text');
-        text = frame.get('.sd-speech-text span');
-
+        frame.add(`
+        `);
       });
 
-      it('centers text within box with padding', function() {
-        var border = 1;
-        textContainer.assert({
-          top: speechBox.top.plus(15 + border),
-          right: speechBox.right.minus(30 + border),
-          bottom: speechBox.bottom.minus(20 + border),
-          left: speechBox.left.plus(30 + border)
-        });
+      it.skip('centers text within box with padding', function() {
       });
 
-      it('should only extend the box as far as the text', function() {
-        var border = 1;
-        speechBox.assert({
-          top: text.top.minus(15 + border),
-          right: text.right.plus(30 + border),
-          bottom: text.bottom.plus(20 + border),
-          left: text.left.minus(30 + border)
-        });
+      it.skip('should only extend the box as far as the text', function() {
       });
 
     });
 
     describe('two speech boxes', function() {
 
-      var container;
-      var body;
-      var one;
-      var two;
-
       beforeEach(function() {
         frame.reset();
-        container = frame.add(
-          `<div>
-            <div class="sd-speech-container">
-              <div id="one" class="sd-speech-box">
-                <div class="sd-speech-text">
-                  <span>Some dialogue</span>
-                </div>
-              </div>
-            </div>
-            <div class="sd-speech-container">
-              <div id="two" class="sd-speech-box">
-                <div class="sd-speech-text">
-                  <span>Some dialogue</span>
-                </div>
-              </div>
-            </div>
-          </div>`
-        );
-        body = frame.get('body');
-        one = frame.get('#one');
-        two = frame.get('#two');
-
+        frame.add(`
+        `);
       });
 
-      it('has vertical space between boxes', function() {
-        two.assert({
-          top: one.bottom.plus(10)
-        });
+      it.skip('has vertical space between boxes', function() {
       });
 
     });
 
     describe('long enough to wrap', function() {
 
-      var container;
-      var body;
-      var speechContainer;
-      var speechBox;
-
       beforeEach(function() {
         frame.reset();
-        container = frame.add(
-          `<div class="sd-speech-container">
-            <div class="sd-speech-box">
-              <div class="sd-speech-text">
-                <span>
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                </span>
-              </div>
-            </div>
-          </div>`
-        );
-        body = frame.get('body');
-        speechContainer = frame.get('.sd-speech-container');
-        speechBox = frame.get('.sd-speech-box');
-
+        frame.add(`
+        `);
       });
 
 
-      it('extends full width with padding', function() {
-        speechContainer.assert({
-          left: body.left.plus(125),
-          right: body.right.minus(175)
-        });
+      it.skip('extends full width with padding', function() {
       });
 
     });
   });
 
   describe('mobile', function() {
+
+    var frame;
 
     before(function(done) {
       frame = quixote.createFrame({
@@ -170,130 +75,44 @@ describe('Speech box', function() {
       }, done);
     });
 
-    describe('two words', function() {
+    after(function() {
+      frame.remove();
+    });
 
-      var container;
-      var body;
-      var speechBox;
-      var textContainer;
-      var text;
+    describe('two words', function() {
 
       beforeEach(function() {
         frame.reset();
-        container = frame.add(
-          `<div class="sd-speech-container">
-            <div class="sd-speech-box">
-              <div class="sd-speech-text">
-                <span>Some dialogue</span>
-              </div>
-            </div>
-          </div>`
-        );
-        body = frame.get('body');
-        speechBox = frame.get('.sd-speech-box');
-        textContainer = frame.get('.sd-speech-text');
-        text = frame.get('.sd-speech-text span');
-
+        frame.add(`
+        `);
       });
 
-      it('should only extend the box as far as the text', function() {
-        var border = 1;
-        speechBox.assert({
-          top: text.top.minus(15 + border),
-          right: text.right.plus(30 + border),
-          bottom: text.bottom.plus(20 + border),
-          left: text.left.minus(30 + border)
-        });
+      it.skip('should only extend the box as far as the text', function() {
       });
 
     });
 
     describe('long enough to wrap', function() {
 
-      var container;
-      var body;
-      var speechContainer;
-      var speechBox;
-
       beforeEach(function() {
         frame.reset();
-        container = frame.add(
-          `<div class="sd-speech-container">
-            <div class="sd-speech-box">
-              <div class="sd-speech-text">
-                <span>
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                  Some dialogue
-                </span>
-              </div>
-            </div>
-          </div>`
-        );
-        body = frame.get('body');
-        speechContainer = frame.get('.sd-speech-container');
-        speechBox = frame.get('.sd-speech-box');
-
+        frame.add(`
+        `);
       });
 
-      it('extends full width', function() {
-        speechContainer.assert({
-          left: body.left,
-          right: body.right
-        });
+      it.skip('extends full width', function() {
       });
     });
 
     describe('two speech boxes', function() {
 
-      var container;
-      var body;
-      var one;
-      var two;
-
       beforeEach(function() {
         frame.reset();
-        container = frame.add(
-          `<div>
-            <div class="sd-speech-container">
-              <div id="one" class="sd-speech-box">
-                <div class="sd-speech-text">
-                  <span>Some dialogue</span>
-                </div>
-              </div>
-            </div>
-            <div class="sd-speech-container">
-              <div id="two" class="sd-speech-box">
-                <div class="sd-speech-text">
-                  <span>Some dialogue</span>
-                </div>
-              </div>
-            </div>
-          </div>`
-        );
-        body = frame.get('body');
-        one = frame.get('#one');
-        two = frame.get('#two');
-
+        frame.add(`
+        `);
       });
 
-      it('has vertical space between boxes', function() {
-        two.assert({
-          top: one.bottom.plus(10)
-        });
+      it.skip('has vertical space between boxes', function() {
       });
 
     });
