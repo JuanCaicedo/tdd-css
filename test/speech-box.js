@@ -64,6 +64,7 @@ describe('Speech box', function() {
   });
 
   describe('mobile', function() {
+    var frame;
 
     var frame;
 
