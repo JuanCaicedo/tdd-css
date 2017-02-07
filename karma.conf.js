@@ -4,7 +4,7 @@
 // Only add if you have browserstack credentials
 var browserStack;
 try {
-  require('./secrets/browserstack');
+  browserStack = require('./secrets/browserstack');
 } catch (e) {
   // Noop, keep going
 }
@@ -13,17 +13,17 @@ module.exports = function(config) {
   config.set({
 
     // Only add if you have browserstack credentials
-    browserStack: browserStack,
+    // browserStack: browserStack,
 
-    customLaunchers: {
-      ie_10: {
-        base: 'BrowserStack',
-        browser: 'ie',
-        browser_version: '10',
-        os: 'Windows',
-        os_version: '7'
-      }
-    },
+    // customLaunchers: {
+    //   ie_10: {
+    //     base: 'BrowserStack',
+    //     browser: 'ie',
+    //     browser_version: '10',
+    //     os: 'Windows',
+    //     os_version: '7'
+    //   }
+    // },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
